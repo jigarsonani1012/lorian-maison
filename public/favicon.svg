@@ -1,0 +1,32 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fav-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFF7E6" />
+      <stop offset="40%" stopColor="#F5D089" />
+      <stop offset="80%" stopColor="#D4A143" />
+      <stop offset="100%" stopColor="#9C7123" />
+    </linearGradient>
+  </defs>
+
+  <!-- Solitaire Ring Band -->
+  <circle
+    cx="50"
+    cy="60"
+    r="30"
+    stroke="url(#fav-gold)"
+    stroke-width="7"
+  />
+
+  <!-- Setting Claws -->
+  <path d="M34 38 L38 22 L42 26 Z" fill="url(#fav-gold)" />
+  <path d="M66 38 L62 22 L58 26 Z" fill="url(#fav-gold)" />
+  <path d="M46 38 L48 20 L52 20 L54 38 Z" fill="url(#fav-gold)" />
+
+  <!-- Brilliant Solitaire Diamond Gemstone -->
+  <polygon points="34,22 66,22 74,32 26,32" fill="url(#fav-gold)" />
+  <polygon points="40,22 60,22 50,10" fill="#FFFFFF" />
+  <polygon points="26,32 74,32 50,56" fill="#FFF8EB" opacity="0.95" />
+
+  <!-- Solitaire Radiant Starburst Crown -->
+  <polygon points="50,0 53,8 61,10 53,12 50,20 47,12 39,10 47,8" fill="#FFFFFF" />
+</svg>
