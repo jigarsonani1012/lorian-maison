@@ -1,0 +1,378 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * L'ORIAN MAISON — design system.
+ * Warm ivory / obsidian editorial palette with strategic champagne gold.
+ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 1px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 3px;
+  --radius-3xl: 4px;
+  --radius-4xl: 4px;
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ivory: var(--ivory);
+  --color-pearl: var(--pearl);
+  --color-obsidian: var(--obsidian);
+  --color-obsidian-soft: var(--obsidian-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+
+  --color-sidebar: var(--pearl);
+  --color-sidebar-foreground: var(--ink);
+  --color-sidebar-primary: var(--obsidian);
+  --color-sidebar-primary-foreground: var(--ivory);
+  --color-sidebar-accent: var(--pearl);
+  --color-sidebar-accent-foreground: var(--ink);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-ring: var(--gold);
+
+  --ease-maison: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --radius: 0px;
+
+  --ivory: oklch(0.963 0.0102 85.9);
+  --pearl: oklch(0.933 0.0122 84.5);
+  --obsidian: oklch(0.156 0 0);
+  --obsidian-soft: oklch(0.204 0.0026 90);
+  --gold: oklch(0.678 0.0618 82.5);
+  --gold-soft: oklch(0.798 0.0478 85.6);
+  --ink: oklch(0.193 0.0022 90);
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: var(--ivory);
+  --popover-foreground: var(--ink);
+  --primary: var(--obsidian);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--pearl);
+  --secondary-foreground: var(--ink);
+  --muted: var(--pearl);
+  --muted-foreground: oklch(0.525 0.0104 80);
+  --accent: var(--gold);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.505 0.153 27.5);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.193 0.0022 90 / 14%);
+  --input: oklch(0.193 0.0022 90 / 22%);
+  --ring: var(--gold);
+}
+
+.dark,
+.on-dark {
+  --background: var(--obsidian);
+  --foreground: oklch(0.963 0.0102 85.9);
+  --card: var(--obsidian-soft);
+  --card-foreground: oklch(0.963 0.0102 85.9);
+  --popover: var(--obsidian-soft);
+  --popover-foreground: oklch(0.963 0.0102 85.9);
+  --primary: oklch(0.963 0.0102 85.9);
+  --primary-foreground: var(--obsidian);
+  --secondary: var(--obsidian-soft);
+  --secondary-foreground: oklch(0.963 0.0102 85.9);
+  --muted: var(--obsidian-soft);
+  --muted-foreground: oklch(0.72 0.0104 80);
+  --accent: var(--gold-soft);
+  --accent-foreground: var(--obsidian);
+  --border: oklch(0.963 0.0102 85.9 / 16%);
+  --input: oklch(0.963 0.0102 85.9 / 26%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 350;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.005em;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+  }
+}
+
+/* ---------- utilities ---------- */
+
+@utility container-maison {
+  width: 100%;
+  max-width: 1560px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 4rem;
+  }
+}
+
+@utility container-narrow {
+  width: 100%;
+  max-width: 780px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Small uppercase luxury label */
+@utility label-maison {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+@utility label-xs {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility section-y {
+  padding-block: 4.5rem;
+  @media (min-width: 768px) {
+    padding-block: 7.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding-block: 10rem;
+  }
+}
+
+/* Editorial link with growing underline */
+@utility link-underline {
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-maison);
+  }
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility link-underline-active {
+  &::after {
+    transform: scaleX(1);
+  }
+}
+
+@utility hairline-gold {
+  border-color: color-mix(in oklab, var(--gold) 45%, transparent);
+}
+
+@utility img-reveal {
+  overflow: hidden;
+  & img {
+    transition: transform 1.2s var(--ease-maison);
+    will-change: transform;
+  }
+  &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* ---------- motion ---------- */
+
+@keyframes lorian-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes lorian-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lorian-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes lorian-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@utility animate-rise {
+  animation: lorian-rise 1s var(--ease-maison) both;
+}
+
+@utility animate-soft-fade {
+  animation: lorian-fade 1.2s var(--ease-maison) both;
+}
+
+@utility animate-slow-zoom {
+  animation: lorian-zoom 18s ease-out both;
+}
+
+@utility scroll-line {
+  animation: lorian-line 2.6s ease-in-out infinite;
+}
+
+/* Scroll reveal primitive */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1s var(--ease-maison),
+    transform 1s var(--ease-maison);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible,
+.reveal.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Custom desktop cursor system */
+@media (hover: hover) and (pointer: fine) {
+  @media (min-width: 1024px) {
+    html,
+    body,
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [data-cursor] {
+      cursor: none !important;
+    }
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
