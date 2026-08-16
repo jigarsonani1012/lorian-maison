@@ -4,7 +4,8 @@ import { X, Search as SearchIcon, Minus, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { useStore, useFormatPrice, track } from "@/lib/store";
-import { ARTICLES, CATEGORY_LABELS, searchAll } from "@/lib/catalog";
+import { ARTICLES, CATEGORY_LABELS, COLLECTIONS, searchAll } from "@/lib/catalog";
+import { Logo, LogoEmblem } from "@/components/site/Logo";
 
 const TRENDING = ["Engagement Rings", "Diamond Necklaces", "New Arrivals", "Celestia", "Gifts"];
 
@@ -56,9 +57,7 @@ export function SearchOverlay() {
       )}
     >
       <div className="container-maison flex h-16 items-center justify-between md:h-20">
-        <Link to="/" onClick={() => setSearchOpen(false)} aria-label="L'ORIAN Maison — home">
-          <span className="font-display text-lg tracking-[0.4em]">L'ORIAN</span>
-        </Link>
+        <Logo variant="full" size="sm" showSubtitle={false} />
         <button type="button" aria-label="Close search" onClick={() => setSearchOpen(false)}>
           <X className="h-5 w-5" strokeWidth={1.25} />
         </button>
@@ -534,7 +533,7 @@ export function PageLoader() {
         done ? "pointer-events-none opacity-0" : "opacity-100",
       )}
     >
-      <span className="mb-6 block h-10 w-px animate-pulse bg-gold" />
+      <LogoEmblem className="mb-6 h-12 w-12 animate-pulse text-gold" />
       <span className="font-display text-3xl tracking-[0.4em] text-ivory">
         {word.slice(0, letters) || "\u00A0"}
       </span>

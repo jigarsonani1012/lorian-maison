@@ -4,6 +4,7 @@ import { Search, MapPin, User, Heart, ShoppingBag, Menu, X, Plus, Minus } from "
 import { cn } from "@/lib/utils";
 import { useStore } from "@/lib/store";
 import { COLLECTIONS, IMAGES } from "@/lib/catalog";
+import { Logo } from "@/components/site/Logo";
 import { getTranslation } from "@/lib/i18n";
 
 interface NavLeaf {
@@ -209,11 +210,9 @@ export function Header() {
               </nav>
             </div>
 
-            {/* Center Brand Typography */}
+            {/* Center Logo */}
             <Link to="/" aria-label="L'ORIAN Maison — home" className="shrink-0 px-2 text-center">
-              <span className="font-display text-xl leading-none tracking-[0.42em] md:text-[1.85rem]">
-                L'ORIAN
-              </span>
+              <Logo variant="header" accentGold={overlayMode} />
             </Link>
 
             {/* Right Nav & Actions */}
@@ -345,7 +344,7 @@ export function Header() {
       >
         <div className="flex h-16 items-center justify-between px-5">
           <Link to="/" onClick={() => setMobileOpen(false)} aria-label="L'ORIAN Maison — home">
-            <span className="font-display text-lg tracking-[0.4em]">L'ORIAN</span>
+            <Logo variant="full" size="sm" showSubtitle={false} />
           </Link>
           <button type="button" aria-label="Close menu" onClick={() => setMobileOpen(false)}>
             <X className="h-5 w-5" strokeWidth={1.25} />
