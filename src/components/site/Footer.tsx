@@ -3,7 +3,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useStore } from "@/lib/store";
 import { COLLECTIONS } from "@/lib/catalog";
-import { Logo } from "@/components/site/Logo";
 import { getTranslation } from "@/lib/i18n";
 
 const COLUMN_KEYS: Record<
@@ -148,8 +147,11 @@ export function Footer() {
         </div>
 
         <div className="mt-20 flex flex-col gap-8 border-t border-ivory/15 pt-10 md:flex-row md:items-center md:justify-between">
-          <Link to="/" aria-label="L'ORIAN Maison — home">
-            <Logo variant="full" size="md" accentGold showSubtitle />
+          <Link to="/" aria-label="L'ORIAN Maison — home" className="inline-flex flex-col">
+            <span className="font-display text-2xl tracking-[0.42em] text-gold">L'ORIAN</span>
+            <span className="mt-1 font-light text-[0.5rem] tracking-[0.36em] text-ivory/60">
+              MAISON DE HAUTE JOAILLERIE
+            </span>
           </Link>
 
           <div className="flex flex-wrap items-center gap-6">
